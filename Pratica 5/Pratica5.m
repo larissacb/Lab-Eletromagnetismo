@@ -25,7 +25,6 @@ dbx = 0; %Considerando que a fase B esta na origem
 dx = [dbx-2*r-dist, dbx, dbx+2*r+dist]; %Posicao de cada uma das fases abc
 x = dominio(1):0.1:dominio(2); %Criando um vetor de pontos
 %%
-
 for i=1:length(h)
     %Calculo do Campo Eletrico gerado pelas 3 fases
     figure()
@@ -40,7 +39,7 @@ for i=1:length(h)
     end
     plot(x,abs(Etotal));
     hold off
-    title("Campo Elétrico gerado pela linha de transmissão 345kV");
+    title("Campo Elétrico");
     xlabel("Posição [m]");
     ylabel("Campo Elétrico [V/m]");
     legend("Fase A","Fase B","Fase C", "Total");
@@ -65,7 +64,7 @@ for i=1:length(h)
     end
     plot(x,abs(Btotal));
     hold off
-    title("Densidade de Fluxo Magnético gerado pela linha de transmissão 345kV");
+    title("Densidade de Fluxo Magnético");
     xlabel("Posição [m]");
     ylabel("Densidade de Fluxo Magnético [Wb/m^2]");
     legend("Fase A","Fase B","Fase C", "Total");
