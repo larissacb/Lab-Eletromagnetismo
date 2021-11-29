@@ -1,5 +1,5 @@
 %Laboratorio de Eletromagnetismo - Eng. Eletrica
-%Pratica 01 - Calculo de campos devido a uma LT trifasica
+%Pratica 05 - Calculo de campos devido a uma LT trifasica
 %25/11/2021
 %Gabriel Arantes e Larissa Braga
 clc;
@@ -32,7 +32,7 @@ for i=1:length(h)
     for fase=1:size(dx,2)%Percorendo todas as fases
         Vret = VL*(cos(seq(fase))+j*sin(seq(fase))); %Convertendo tensao de linha para notacao retangular
         ro = (2*pi*eps*Vret)/log(2*h(i)/r); %Calculo da densidade de carga    
-        E = (-ro./(pi.*eps)).*(h(i)./((x-dx(fase)).^2+h(i).^2)); %Calculo do campo eletrico
+        E = ((-ro./(pi.*eps)).*(h(i)./((x-dx(fase)).^2+h(i).^2)))/sqrt(3); %Calculo do campo eletrico
         Etotal = Etotal+E;
         plot(x,abs(E)),grid; %Plotando o grafico
         hold on
@@ -57,7 +57,7 @@ for i=1:length(h)
     for fase=1:size(dx,2)%Percorendo todas as fases
         Vret = VL*(cos(seq(fase))+j*sin(seq(fase))); %Convertendo para notacao retangular a tensao de linha. Angulo convertido para radianos para usar a funcao
         IL = S/(sqrt(3)*Vret); %Calculo da corrente
-        B = (u0*IL/pi).*(h(i)./((x-dx(fase)).^2+h(i).^2)); %Calculo da densidade do fluxo magnetico
+        B = ((u0*IL/pi).*(h(i)./((x-dx(fase)).^2+h(i).^2)))/sqrt(3); %Calculo da densidade do fluxo magnetico
         Btotal = Btotal+B;
         plot(x,abs(B)),grid; %Plotando o grafico
         hold on
